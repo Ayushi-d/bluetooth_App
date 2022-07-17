@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bleDeviceFragment2">
+    <fragment
+        android:id="@+id/bleDeviceFragment2"
+        android:name="com.example.f1bleapp.UI.Fragments.BleDeviceFragment"
+        android:label="fragment_ble_device"
+        tools:layout="@layout/fragment_ble_device" >
+        <action
+            android:id="@+id/action_bleDeviceFragment2_to_csvFragment2"
+            app:destination="@id/csvFragment2" />
+        <action
+            android:id="@+id/action_bleDeviceFragment2_to_connectingDialog"
+            app:destination="@id/connectingDialog" />
+        <action
+            android:id="@+id/action_bleDeviceFragment2_to_successDialog"
+            app:destination="@id/successDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/csvFragment2"
+        android:name="com.example.f1bleapp.UI.Fragments.CsvFragment"
+        android:label="CsvFragment" >
+        <action
+            android:id="@+id/action_csvFragment2_to_videoFragment2"
+            app:destination="@id/videoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment2"
+        android:name="com.example.f1bleapp.UI.Fragments.VideoFragment"
+        android:label="VideoFragment" >
+        <argument
+            android:name="csvData"
+            app:argType="com.example.f1bleapp.Data.Local.CsvData[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <dialog
+        android:id="@+id/connectingDialog"
+        android:name="com.example.f1bleapp.UI.AlertDialogs.ConnectingDialog"
+        android:label="ConnectingDialog" />
+    <dialog
+        android:id="@+id/successDialog"
+        android:name="com.example.f1bleapp.UI.AlertDialogs.SuccessDialog"
+        android:label="SuccessDialog" />
+</navigation>
